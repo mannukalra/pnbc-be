@@ -1,6 +1,8 @@
 import React, {Component, useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TestComponent from './components/TestComponent';
+import Welcome from './components/Welcome';
 
 function App () {
     const [message, setMessage] = useState("");
@@ -21,6 +23,10 @@ function App () {
             <p className="App-intro">
                 To get started, edit <code>src/App.js</code> and save to reload.
             </p>
+            <TestComponent name="testName">
+                <p>test paragraph</p>
+            </TestComponent>
+            <Welcome/>
         </div>
 )
 }
