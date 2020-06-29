@@ -12,7 +12,7 @@ class Welcome extends Component{
     }
    }
 
-   connect(){
+   enquire(){
     console.log("inside connect");
    }
 
@@ -32,7 +32,7 @@ class Welcome extends Component{
                         <Label>Phone Number</Label>
                         <Input type="text"></Input>
                     </FormGroup>
-                    <Button onClick={this.connect()}>Connect</Button>
+                    <Button onClick={this.enquire()}>Connect</Button>
                 </Form>
             </Container>
         </div>);

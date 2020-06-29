@@ -1,8 +1,12 @@
 import React, {Component, useState, useEffect} from 'react';
-import logo from './logo.svg';
+import PhoneIcon from '@material-ui/icons/Phone';
+import logo from './logo-actual.svg';
+import bg1 from './img/bg1.jpg';
+import bg2 from './img/bg2.jpg';
 import './App.css';
 import TestComponent from './components/TestComponent';
 import Welcome from './components/Welcome';
+import {Container, Row, Col} from "reactstrap";
 
 function App () {
     const [message, setMessage] = useState("");
@@ -15,19 +19,32 @@ function App () {
             });
     },[])
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-                <h1 className="App-title">{message}</h1>
+            <div style={{backgroundImage:`url(${bg1})` }}>
+            <header>
+                <Container style={{display:"grid"}}>
+                    <div style={{marginLeft:"12rem", marginTop:"1rem", color:"#34cceb", fontSize:"small"}}>
+                        <PhoneIcon style={{ color:"#34cceb", fontSize:"1rem"}}></PhoneIcon>
+                        &nbsp;&nbsp;&nbsp;&nbsp;CALL (773) 634-9078
+                    </div>
+                </Container>
             </header>
-            <p className="App-intro">
-                To get started, edit <code>src/App.js</code> and save to reload.
-            </p>
-            <TestComponent name="testName">
-                <p>test paragraph</p>
-            </TestComponent>
-            <Welcome/>
+            <Container style={{display:"flex", justifyContent:"center"}}>
+                    <div style={{ width:"82%", marginleft:"auto", marginTop:"1rem", backgroundImage:`url(${bg2})`,
+                         boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5)"}}>
+                        
+                        <div style={{backgroundColor:"#074193", height:"6rem"}}>
+                            <div style={{alignContent:"left"}}>
+                                <img allign="left" src={logo} alt="logo" style={{height:"54px", width:"112px", marginLeft:"28px", marginTop:"21px"}}/>
+                            </div>
+                        </div>
+                    <TestComponent name="testName">
+                        <h1 className="App-title">{message}</h1>
+                    </TestComponent>
+                    <Welcome/>
+                    </div>
+            </Container>
         </div>
+        
 )
 }
 
