@@ -8,7 +8,11 @@
     "react-scripts": "^3.3.0",
     "reactstrap": "^5.0.0",
     "@material-ui/core": "4.10.2",
-    "@material-ui/icons": "4.9.1"
+    "@material-ui/icons": "4.9.1",
+    "react-bootstrap": "1.2.1",
+    "carbon-components": "10.15.0",
+    "carbon-icons": "7.0.7",
+    "carbon-components-react": "7.15.0"
   },
   "scripts": {
     "start": "set PORT=3003 && react-scripts start",

@@ -1,36 +1,26 @@
 package in.pnbc.springandreact;
 
 public class ClientDetails {
-    String firstName;
-    String lastName;
+    String name;
     String mailId;
-    Long mobileNumber;
+    String mobileNumber;
     String message;
 
     public ClientDetails(){}
 
-    public ClientDetails(String firstName, String lastName, String mailId, Long mobileNumber, String message) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public ClientDetails(String name, String mailId, String mobileNumber, String message) {
+        this.name = name;
         this.mailId = mailId;
         this.mobileNumber = mobileNumber;
         this.message = message;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMailId() {
@@ -41,11 +31,11 @@ public class ClientDetails {
         this.mailId = mailId;
     }
 
-    public Long getMobileNumber() {
+    public String getMobileNumber() {
         return mobileNumber;
     }
 
-    public void setMobileNumber(Long mobileNumber) {
+    public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 

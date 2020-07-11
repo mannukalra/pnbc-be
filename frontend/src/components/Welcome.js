@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Container, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { TextInput } from 'carbon-components-react'
 
 class Welcome extends Component{
 
@@ -12,30 +13,70 @@ class Welcome extends Component{
     }
    }
 
-   enquire(){
+   enquire = () => {
     console.log("inside connect");
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: this.state.name, mailId: this.state.email, mobileNumber: this.state.contactNum, message: "some ipsum lorem!" })
+    };
+    fetch('http://localhost:8008/enquire', requestOptions)
+    .then(response => response)
+    .then(function(response) {
+            alert(JSON.stringify(response));
+        })
+    .catch(function(error) {
+        console.log(error);
+    });  
+       
+    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+this.state.resp);
    }
 
+   onChangePhone = (event) => {
+    this.setState({ contactNum: event.target.value });
+   }
+   onChangeName = (event) => {
+    this.setState({ name: event.target.value });
+   }
+   onChangeEmail = (event) => {
+    this.setState({ email: event.target.value });
+   }
     render(){
-        return (<div>
+        return (
             <Container fluid>
+                <Label className="standard-carbon-input"> Get a free estimate </Label><br /><br />
                 <Form>
                     <FormGroup>
-                        <Label>Username</Label>
-                        <Input type="text"></Input>
+                    <Label>Your Name</Label>
+                    <TextInput style={{ width: "20%", marginTop: "10px"}}
+                        onChange={(e) => { this.onChangeName(e) }}
+                        value={this.state.name}
+                        placeholder="your name"
+                    />
+                    <br />
                     </FormGroup>
                     <FormGroup>
-                        <Label>Email</Label>
-                        <Input type="text"></Input>
+                    <Label>YOUR EMAIL</Label>
+                    <TextInput style={{ width: "20%", marginTop: "10px"}}
+                        onChange={(e) => { this.onChangeEmail(e) }}
+                        value={this.state.email}
+                        placeholder="your email address"
+                    />
+                    <br />
                     </FormGroup>
                     <FormGroup>
-                        <Label>Phone Number</Label>
-                        <Input type="text"></Input>
+                    <Label>YOUR PHONE</Label>
+                    <TextInput style={{ width: "20%", marginTop: "10px"}}
+                        onChange={(e) => { this.onChangePhone(e) }}
+                        value={this.state.contactNum}
+                        placeholder="your phone number"
+                    />
+                    <br />
                     </FormGroup>
-                    <Button onClick={this.enquire()}>Connect</Button>
-                </Form>
+                    <Button onClick={this.enquire}>Enquire</Button>
+                    </Form>
             </Container>
-        </div>);
+        );
     }
 }
 

@@ -25,10 +25,10 @@ public class NotificationService {
 
     public void sendNotification(ClientDetails client) throws MailException {
         SimpleMailMessage mail = new SimpleMailMessage();
-        mail.setTo(client.getMailId());
+        mail.setTo(client.getMailId());//TODO receive on kk's mail id
         mail.setFrom(fromMailAddress);
-        mail.setSubject(client.firstName+" "+client.lastName+" wants to connect!");
-        mail.setText(client.getMessage()+client.getMobileNumber());
+        mail.setSubject(client.name+" wants to connect!");
+        mail.setText(client.getMessage()+" Mobile: "+client.getMobileNumber()+". Email"+client.getMailId());
 
         String actualPwd = new String(Base64.getDecoder().decode(password));
         javaMailSender.setPassword(actualPwd);
