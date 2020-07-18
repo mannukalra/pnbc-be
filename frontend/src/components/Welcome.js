@@ -20,7 +20,7 @@ class Welcome extends Component{
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: this.state.name, mailId: this.state.email, mobileNumber: this.state.contactNum, message: "some ipsum lorem!" })
     };
-    fetch('http://localhost:8008/enquire', requestOptions)
+    fetch('/api/enquire', requestOptions)
     .then(response => response)
     .then(function(response) {
             alert(JSON.stringify(response));

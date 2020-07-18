@@ -19,7 +19,7 @@ public class EnquiryController {
             allowedHeaders = "*",
             methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT}
     )
-    @RequestMapping(value = "/enquire", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
+    @RequestMapping(value = "/api/enquire", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.TEXT_PLAIN_VALUE)
     public String enquire(@RequestBody ClientDetails clientDetails){
 
